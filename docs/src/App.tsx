@@ -5,6 +5,7 @@ import twemojiIndex from "svg-emojis/twemoji/index.json";
 import openMojiIndex from "svg-emojis/openmoji/color/index.json";
 import fxEmojiIndex from "svg-emojis/fxemoji/index.json";
 
+const cdn = "https://cdn.jsdelivr.net/npm/svg-emojis";
 const EmojiInput = styled.input`
   font-size: 2rem;
   height: 3rem;
@@ -39,7 +40,7 @@ function App() {
         {
           name: "Twemoji",
           file: twemojiIndex.find((emoji) => emoji.includes(codePoint)) || "",
-          src: `https://twemoji.maxcdn.com/svg/`,
+          src: `${cdn}/twemoji`,
         },
         {
           name: "FxEmoji",
@@ -47,7 +48,7 @@ function App() {
             fxEmojiIndex.find((emoji) =>
               emoji.toLowerCase().includes(codePoint)
             ) || "",
-          src: `https://raw.githubusercontent.com/mozilla/fxemoji/gh-pages/svgs/FirefoxEmoji/`,
+          src: `${cdn}/fxemoji`,
         },
         {
           name: "OpenMoji",
@@ -55,7 +56,7 @@ function App() {
             openMojiIndex.find((emoji) =>
               emoji.toLowerCase().includes(codePoint)
             ) || "",
-          src: `https://www.openmoji.org/data/color/svg/`,
+          src: `${cdn}/openmoji/color`,
         },
       ]);
     }
