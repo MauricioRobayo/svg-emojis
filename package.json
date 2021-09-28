@@ -1,23 +1,19 @@
 {
-  "name": "react-emoji-svg-components",
-  "version": "0.0.3",
-  "description": "",
-  "main": "index.js",
+  "name": "svg-emojis",
+  "version": "0.0.1",
+  "description": "Firefox, Twemoji, and Openmoji SVG emojis",
   "scripts": {
-    "build:twemoji": "node twemoji.js",
-    "prepublishOnly": "npm run build:twemoji",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node ./build"
   },
   "keywords": [],
   "author": "Mauricio Robayo",
   "license": "MIT",
-  "dependencies": {
-    "@svgr/core": "^5.5.0"
-  },
-  "peerDependencies": {
-    "react": ">=17"
-  },
   "files": [
+    "fxemoji",
+    "openmoji",
     "twemoji"
-  ]
+  ],
+  "dependencies": {
+    "download": "^8.0.0"
+  }
 }
