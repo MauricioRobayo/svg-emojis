@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build:twemoji": "node twemoji.js",
+    "prepublishOnly": "npm run build:twemoji",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,5 +13,11 @@
   "license": "MIT",
   "dependencies": {
     "@svgr/core": "^5.5.0"
-  }
+  },
+  "peerDependencies": {
+    "react": ">=17"
+  },
+  "files": [
+    "twemoji"
+  ]
 }

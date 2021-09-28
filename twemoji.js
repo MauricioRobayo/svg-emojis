@@ -23,5 +23,9 @@ const svgrOptions = {
     const componentFilename = path.join(destDir, `${componentName}.tsx`);
     console.log(`${svg} => ${componentFilename}`);
     await fs.writeFile(componentFilename, svgTsx);
+    await fs.appendFile(
+      path.join(destDir, "index.ts"),
+      `export { default as ${componentName} } from './${componentName}';\n`
+    );
   }
 })();
