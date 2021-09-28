@@ -7,6 +7,8 @@ SVG emojis from [Twemoji](https://github.com/twitter/twemoji), [FxEMoji](https:/
 - [/openmoji/color](./openmoji/color)
 - [/openmoji/black](./openmoji/black)
 
+👉 [Demo](https://www.mauriciorobayo.com/svg-emojis)
+
 ## Install
 
 ```
@@ -41,3 +43,16 @@ function App() {
   );
 }
 ```
+
+## CDN
+
+Files are available on [jsdelivr](https://www.jsdelivr.com/) (or [unpkg](https://unpkg.com/)):
+
+- https://cdn.jsdelivr.net/npm/svg-emojis/twemoji/index.json
+- https://cdn.jsdelivr.net/npm/svg-emojis/openmoji/color/index.json
+- https://cdn.jsdelivr.net/npm/svg-emojis/openmoji/black/index.json
+- https://cdn.jsdelivr.net/npm/svg-emojis/fxemoji/index.json
+
+## Contributions
+
+All contributions are welcome!
