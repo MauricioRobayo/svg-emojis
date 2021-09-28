@@ -1,11 +1,17 @@
 {
   "name": "svg-emojis",
   "version": "0.0.1",
-  "description": "Firefox, Twemoji, and Openmoji SVG emojis",
+  "description": "Fxmoji, Twemoji, and Openmoji SVG emojis",
   "scripts": {
     "build": "node ./build"
   },
-  "keywords": [],
+  "keywords": [
+    "emoji",
+    "svg",
+    "twemoji",
+    "openmoji",
+    "fxmoji"
+  ],
   "author": "Mauricio Robayo",
   "license": "MIT",
   "files": [
