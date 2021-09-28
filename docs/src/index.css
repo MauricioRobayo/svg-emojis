@@ -8,3 +8,25 @@ body {
   color: #444;
   text-align: center;
 }
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(95%, 600px);
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+  background-color: #e7e7e7;
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+}
+h2 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 2rem 0 0.5rem;
+}
+img {
+  width: 1em;
+  height: 1em;
+}
