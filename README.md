@@ -9,7 +9,7 @@ SVG emojis from [Twemoji](https://github.com/twitter/twemoji), [FxEMoji](https:/
 - [/openmoji/color](./openmoji/color)
 - [/openmoji/black](./openmoji/black)
 
-👉 [Demo](svg-emojis.netlify.app)
+👉 [Demo](https://svg-emojis.netlify.app)
 
 ## Install
 
