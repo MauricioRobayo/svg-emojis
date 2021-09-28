@@ -1,7 +1,5 @@
 # SVG Emojis
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/387f0a53-f25f-409d-9dfb-3ca35c09ff8e/deploy-status)](https://app.netlify.com/sites/svg-emojis/deploys)
-
 SVG emojis from [Twemoji](https://github.com/twitter/twemoji), [FxEMoji](https://github.com/mozilla/fxemoji), and [OpenMoji](https://www.openmoji.org/).
 
 - [/twemoji](./twemoji)
@@ -9,7 +7,11 @@ SVG emojis from [Twemoji](https://github.com/twitter/twemoji), [FxEMoji](https:/
 - [/openmoji/color](./openmoji/color)
 - [/openmoji/black](./openmoji/black)
 
-👉 [Demo](https://svg-emojis.netlify.app)
+## Demo
+
+https://svg-emojis.netlify.app
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/387f0a53-f25f-409d-9dfb-3ca35c09ff8e/deploy-status)](https://app.netlify.com/sites/svg-emojis/deploys)
 
 ## Install
 
