@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import twemoji from "twemoji";
 import twemojiIndex from "svg-emojis/twemoji/index.json";
 import openMojiIndex from "svg-emojis/openmoji/color/index.json";
@@ -78,7 +78,7 @@ function App() {
                     alt={file}
                   />
                 </h2>
-                <code>{`${packageName}/${src}/${file}`}</code>
+                <Code>{`${packageName}/${src}/${file}`}</Code>
               </section>
             );
           })}
@@ -88,6 +88,24 @@ function App() {
         View on{" "}
         <a href="https://github.com/MauricioRobayo/svg-emojis">GitHub</a>
       </footer>
+    </div>
+  );
+}
+
+function Code({ children }: { children: string }) {
+  const [copied, setCopied] = useState(false);
+  const onClickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(children);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+  return (
+    <div className="code-wrapper">
+      <code>{children}</code>
+      <button type="button" className="copy-button" onClick={onClickHandler}>
+        {copied ? "copied!" : "copy path"}
+      </button>
     </div>
   );
 }
