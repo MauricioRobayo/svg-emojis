@@ -6,9 +6,12 @@ import fxEmojiIndex from "svg-emojis/fxemoji/index.json";
 
 const packageName = "svg-emojis";
 const cdn = "https://cdn.jsdelivr.net/npm";
+function isEmoji(emoji: string) {
+  return /\p{Extended_Pictographic}/u.test(emoji);
+}
 
 function App() {
-  const [emoji, setEmoji] = React.useState("😎");
+  const [emoji, setEmoji] = React.useState("🐹");
   const [emojis, setEmojis] = React.useState<
     { name: string; file: string; src: string }[]
   >([]);
@@ -19,34 +22,37 @@ function App() {
   };
 
   useEffect(() => {
-    if (/\p{Extended_Pictographic}/u.test(emoji)) {
-      const codePoint = twemoji.convert.toCodePoint(emoji);
-      setEmojis(
-        [
-          {
-            name: "Twemoji",
-            file: twemojiIndex.find((emoji) => emoji.includes(codePoint)) || "",
-            src: "twemoji",
-          },
-          {
-            name: "FxEmoji",
-            file:
-              fxEmojiIndex.find((emoji) =>
-                emoji.toLowerCase().includes(codePoint)
-              ) || "",
-            src: "fxemoji",
-          },
-          {
-            name: "OpenMoji",
-            file:
-              openMojiIndex.find((emoji) =>
-                emoji.toLowerCase().includes(codePoint)
-              ) || "",
-            src: "openmoji/color",
-          },
-        ].filter((emoji) => emoji.file !== "")
-      );
+    if (!isEmoji(emoji)) {
+      setEmojis([]);
+      return;
     }
+
+    const codePoint = twemoji.convert.toCodePoint(emoji);
+    setEmojis(
+      [
+        {
+          name: "Twemoji",
+          file: twemojiIndex.find((emoji) => emoji.includes(codePoint)) || "",
+          src: "twemoji",
+        },
+        {
+          name: "FxEmoji",
+          file:
+            fxEmojiIndex.find((emoji) =>
+              emoji.toLowerCase().includes(codePoint)
+            ) || "",
+          src: "fxemoji",
+        },
+        {
+          name: "OpenMoji",
+          file:
+            openMojiIndex.find((emoji) =>
+              emoji.toLowerCase().includes(codePoint)
+            ) || "",
+          src: "openmoji/color",
+        },
+      ].filter((emoji) => emoji.file !== "")
+    );
   }, [emoji]);
 
   return (
