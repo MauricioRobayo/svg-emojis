@@ -19,10 +19,9 @@
     "openmoji",
     "twemoji"
   ],
-  "dependencies": {
+  "devDependencies": {
     "download": "^8.0.0"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MauricioRobayo/svg-emojis.git"
