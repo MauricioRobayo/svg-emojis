@@ -1,9 +1,10 @@
 {
   "name": "svg-emojis",
   "version": "0.0.3",
-  "description": "Fxmoji, Twemoji, and Openmoji SVG emojis",
+  "description": "Choose your flavor of consistent cross-platform SVG emojis",
   "scripts": {
-    "build": "node ./build"
+    "build": "node ./build",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "emoji",
@@ -21,5 +22,14 @@
   ],
   "dependencies": {
     "download": "^8.0.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MauricioRobayo/svg-emojis.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MauricioRobayo/svg-emojis/issues"
+  },
+  "homepage": "https://github.com/MauricioRobayo/svg-emojis#readme"
 }
