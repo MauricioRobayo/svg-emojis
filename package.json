@@ -1,7 +1,7 @@
 {
   "name": "svg-emojis",
   "version": "0.0.4",
-  "description": "Choose your flavor of consistent cross-platform svg emojis",
+  "description": "Choose your flavor of consistent cross-platform SVG emojis",
   "scripts": {
     "build": "node ./build"
   },
