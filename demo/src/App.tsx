@@ -50,7 +50,7 @@ function App() {
   }, [emoji]);
 
   return (
-    <div>
+    <div className="container">
       <header>
         <h1>SVG Emojis</h1>
       </header>
@@ -84,6 +84,10 @@ function App() {
           })}
         </article>
       </main>
+      <footer>
+        View on{" "}
+        <a href="https://github.com/MauricioRobayo/svg-emojis">GitHub</a>
+      </footer>
     </div>
   );
 }

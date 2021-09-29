@@ -8,7 +8,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   align-items: center;
-  background-color: #092133;
+  background-color: #061a29;
   color: #d3baa1;
   display: flex;
   flex-direction: column;
@@ -29,6 +29,7 @@ main {
   align-items: center;
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 section {
   display: flex;
@@ -62,7 +63,15 @@ a {
   color: rgb(31, 130, 192);
 }
 small {
-  color: #666;
+  color: gray;
   font-size: 0.8rem;
   margin: 0;
+}
+footer {
+  padding: 1rem 0;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
