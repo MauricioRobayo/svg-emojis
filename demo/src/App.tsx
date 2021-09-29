@@ -80,13 +80,7 @@ function App() {
             <section key={name}>
               <h2>{name}</h2>
               {files.map((file) => (
-                <Fragment key={file}>
-                  <img
-                    src={`${cdn}/${packageName}/${src}/${file}`}
-                    alt={file}
-                  />
-                  <Code>{`${packageName}/${src}/${file}`}</Code>
-                </Fragment>
+                <Result key={file} filePath={`${packageName}/${src}/${file}`} />
               ))}
             </section>
           ))}
@@ -100,21 +94,24 @@ function App() {
   );
 }
 
-function Code({ children }: { children: string }) {
+function Result({ filePath }: { filePath: string }) {
   const [copied, setCopied] = useState(false);
   const onClickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    navigator.clipboard.writeText(children);
+    navigator.clipboard.writeText(filePath);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
   return (
-    <div className="code-wrapper">
-      <code>{children}</code>
-      <button type="button" className="copy-button" onClick={onClickHandler}>
-        {copied ? "Copied!" : "Copy"}
-      </button>
-    </div>
+    <>
+      <img src={`${cdn}/${filePath}`} alt={filePath} />
+      <div className="code-wrapper">
+        <code>{filePath}</code>
+        <button type="button" className="copy-button" onClick={onClickHandler}>
+          {copied ? "Copied!" : "Copy"}
+        </button>
+      </div>
+    </>
   );
 }
 
