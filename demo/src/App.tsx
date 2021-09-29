@@ -1,67 +1,53 @@
-import React from "react";
-import styled from "styled-components/macro";
+import React, { useEffect } from "react";
 import twemoji from "twemoji";
 import twemojiIndex from "svg-emojis/twemoji/index.json";
 import openMojiIndex from "svg-emojis/openmoji/color/index.json";
 import fxEmojiIndex from "svg-emojis/fxemoji/index.json";
 
-const cdn = "https://cdn.jsdelivr.net/npm/svg-emojis";
-const EmojiInput = styled.input`
-  font-size: 2rem;
-  height: 3rem;
-  width: 3rem;
-  border: 4px solid gainsboro;
-  border-radius: 0.5rem;
-  text-align: center;
-  padding: 0.5rem;
-  margin: 0.5rem 0;
-`;
-const SmallParagraph = styled.p`
-  margin: 0;
-  font-size: 0.8rem;
-  color: #666;
-`;
-const Output = styled.div`
-  text-align: left;
-`;
+const packageName = "svg-emojis";
+const cdn = "https://cdn.jsdelivr.net/npm";
 
 function App() {
-  const prefix = "svg-emojis";
-  const [emoji, setEmoji] = React.useState("");
+  const [emoji, setEmoji] = React.useState("😎");
   const [emojis, setEmojis] = React.useState<
     { name: string; file: string; src: string }[]
   >([]);
 
   const emojiHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    if (/\p{Extended_Pictographic}/u.test(value)) {
-      const codePoint = twemoji.convert.toCodePoint(value);
-      setEmojis([
-        {
-          name: "Twemoji",
-          file: twemojiIndex.find((emoji) => emoji.includes(codePoint)) || "",
-          src: `${cdn}/twemoji`,
-        },
-        {
-          name: "FxEmoji",
-          file:
-            fxEmojiIndex.find((emoji) =>
-              emoji.toLowerCase().includes(codePoint)
-            ) || "",
-          src: `${cdn}/fxemoji`,
-        },
-        {
-          name: "OpenMoji",
-          file:
-            openMojiIndex.find((emoji) =>
-              emoji.toLowerCase().includes(codePoint)
-            ) || "",
-          src: `${cdn}/openmoji/color`,
-        },
-      ]);
-    }
     setEmoji(value);
   };
+
+  useEffect(() => {
+    if (/\p{Extended_Pictographic}/u.test(emoji)) {
+      const codePoint = twemoji.convert.toCodePoint(emoji);
+      setEmojis(
+        [
+          {
+            name: "Twemoji",
+            file: twemojiIndex.find((emoji) => emoji.includes(codePoint)) || "",
+            src: "twemoji",
+          },
+          {
+            name: "FxEmoji",
+            file:
+              fxEmojiIndex.find((emoji) =>
+                emoji.toLowerCase().includes(codePoint)
+              ) || "",
+            src: "fxemoji",
+          },
+          {
+            name: "OpenMoji",
+            file:
+              openMojiIndex.find((emoji) =>
+                emoji.toLowerCase().includes(codePoint)
+              ) || "",
+            src: "openmoji/color",
+          },
+        ].filter((emoji) => emoji.file !== "")
+      );
+    }
+  }, [emoji]);
 
   return (
     <div>
@@ -70,29 +56,33 @@ function App() {
       </header>
       <main>
         <label htmlFor="emoji">Emoji</label>
-        <EmojiInput
+        <input
           id="emoji"
           type="text"
           autoFocus
           onChange={emojiHandler}
           value={emoji}
         />
-        <SmallParagraph>
+        <small>
           Copy and paste from{" "}
           <a href="https://getemoji.com">https://getemoji.com</a>
-        </SmallParagraph>
-        <Output>
+        </small>
+        <article>
           {emojis.map(({ name, file, src }) => {
             return (
               <section key={file}>
                 <h2>
-                  {name} <img src={`${src}/${file}`} alt={file} />
+                  {name}
+                  <img
+                    src={`${cdn}/${packageName}/${src}/${file}`}
+                    alt={file}
+                  />
                 </h2>
-                <code>{`${prefix}/${name}/${file}`}</code>
+                <code>{`${packageName}/${src}/${file}`}</code>
               </section>
             );
           })}
-        </Output>
+        </article>
       </main>
     </div>
   );
