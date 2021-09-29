@@ -69,6 +69,7 @@ function App() {
           autoFocus
           onChange={emojiHandler}
           value={emoji}
+          autoComplete="off"
         />
         <small>
           Copy and paste from{" "}
