@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import twemoji from "twemoji";
 import twemojiIndex from "svg-emojis/twemoji/index.json";
 import openMojiIndex from "svg-emojis/openmoji/color/index.json";
@@ -76,22 +76,20 @@ function App() {
           <a href="https://getemoji.com">https://getemoji.com</a>
         </small>
         <article>
-          {emojis.map(({ name, files, src }) => {
-            return (
-              <section key={files.join()}>
-                <h2>{name}</h2>
-                {files.map((file) => (
-                  <>
-                    <img
-                      src={`${cdn}/${packageName}/${src}/${file}`}
-                      alt={file}
-                    />
-                    <Code>{`${packageName}/${src}/${file}`}</Code>
-                  </>
-                ))}
-              </section>
-            );
-          })}
+          {emojis.map(({ name, files, src }) => (
+            <section key={name}>
+              <h2>{name}</h2>
+              {files.map((file) => (
+                <Fragment key={file}>
+                  <img
+                    src={`${cdn}/${packageName}/${src}/${file}`}
+                    alt={file}
+                  />
+                  <Code>{`${packageName}/${src}/${file}`}</Code>
+                </Fragment>
+              ))}
+            </section>
+          ))}
         </article>
       </main>
       <footer>
