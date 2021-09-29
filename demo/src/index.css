@@ -40,7 +40,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
   background-color: hsl(206, 44%, 20%);
-  border-radius: 0.25rem;
+  border-bottom-left-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
   display: block;
   overflow-x: auto;
   padding: 0.25em 0.5em;
@@ -76,20 +77,18 @@ footer {
   height: 100vh;
 }
 .code-wrapper {
-  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 8ch;
+  align-items: stretch;
 }
 .copy-button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: hsl(206, 74%, 3%);
+  background-color: hsl(206, 74%, 5%);
   border: none;
   color: gray;
   cursor: pointer;
   padding: 0 0.5rem;
-  border-radius: 0.25rem;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  border-radius: 0;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
   font-size: 0.8rem;
 }

@@ -104,7 +104,7 @@ function Code({ children }: { children: string }) {
     <div className="code-wrapper">
       <code>{children}</code>
       <button type="button" className="copy-button" onClick={onClickHandler}>
-        {copied ? "copied!" : "copy path"}
+        {copied ? "copied!" : "copy"}
       </button>
     </div>
   );
