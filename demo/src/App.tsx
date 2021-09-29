@@ -11,9 +11,9 @@ function isEmoji(emoji: string) {
 }
 
 function App() {
-  const [emoji, setEmoji] = React.useState("🐹");
+  const [emoji, setEmoji] = React.useState("👍");
   const [emojis, setEmojis] = React.useState<
-    { name: string; file: string; src: string }[]
+    { name: string; files: string[]; src: string }[]
   >([]);
 
   const emojiHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,26 +32,27 @@ function App() {
       [
         {
           name: "Twemoji",
-          file: twemojiIndex.find((emoji) => emoji.includes(codePoint)) || "",
+          files:
+            twemojiIndex.filter((emoji) => emoji.includes(codePoint)) || [],
           src: "twemoji",
         },
         {
           name: "FxEmoji",
-          file:
-            fxEmojiIndex.find((emoji) =>
+          files:
+            fxEmojiIndex.filter((emoji) =>
               emoji.toLowerCase().includes(codePoint)
-            ) || "",
+            ) || [],
           src: "fxemoji",
         },
         {
           name: "OpenMoji",
-          file:
-            openMojiIndex.find((emoji) =>
+          files:
+            openMojiIndex.filter((emoji) =>
               emoji.toLowerCase().includes(codePoint)
-            ) || "",
+            ) || [],
           src: "openmoji/color",
         },
-      ].filter((emoji) => emoji.file !== "")
+      ].filter((emoji) => emoji.files.length > 0)
     );
   }, [emoji]);
 
@@ -74,17 +75,19 @@ function App() {
           <a href="https://getemoji.com">https://getemoji.com</a>
         </small>
         <article>
-          {emojis.map(({ name, file, src }) => {
+          {emojis.map(({ name, files, src }) => {
             return (
-              <section key={file}>
-                <h2>
-                  {name}
-                  <img
-                    src={`${cdn}/${packageName}/${src}/${file}`}
-                    alt={file}
-                  />
-                </h2>
-                <Code>{`${packageName}/${src}/${file}`}</Code>
+              <section key={files.join()}>
+                <h2>{name}</h2>
+                {files.map((file) => (
+                  <>
+                    <img
+                      src={`${cdn}/${packageName}/${src}/${file}`}
+                      alt={file}
+                    />
+                    <Code>{`${packageName}/${src}/${file}`}</Code>
+                  </>
+                ))}
               </section>
             );
           })}
