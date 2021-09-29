@@ -1,5 +1,25 @@
-:root {
+* {
   box-sizing: border-box;
+  --brand1-hue: 30;
+  --brand1-saturation: 36%;
+  --brand1-lightness: 73%;
+  --brand2-hue: 190;
+  --brand2-saturation: 36%;
+  --brand2-lightness: 73%;
+  --text1: hsl(
+    var(--brand1-hue),
+    var(--brand1-saturation),
+    var(--brand1-lightness)
+  );
+  --text2: hsl(
+    var(--brand1-hue),
+    var(--brand1-saturation),
+    var(--brand1-lightness),
+    0.5
+  );
+  --surface1: hsl(var(--brand2-hue) 10% 5%);
+  --surface2: hsl(var(--brand2-hue) 10% 10%);
+  --surface3: hsl(var(--brand2-hue) 5% 15%);
 }
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -8,8 +28,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   align-items: center;
-  background-color: hsl(206, 74%, 10%);
-  color: #d3baa1;
+  background-color: var(--surface2);
+  color: var(--text1);
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -17,13 +37,13 @@ body {
 }
 input {
   border-radius: 0.5rem;
-  border: 4px solid gainsboro;
+  border: 4px solid var(--text1);
   font-size: 2rem;
-  height: 3rem;
+  height: 5.5rem;
   margin: 0.5rem 0;
-  padding: 0.5rem;
+  padding: 0.25rem;
   text-align: center;
-  width: 4rem;
+  width: 5.5rem;
 }
 main {
   align-items: center;
@@ -39,7 +59,7 @@ section {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-  background-color: hsl(206, 44%, 20%);
+  background-color: var(--surface3);
   border-bottom-left-radius: 0.5rem;
   border-top-left-radius: 0.5rem;
   display: block;
@@ -61,10 +81,14 @@ img {
   width: 1em;
 }
 a {
-  color: hsl(206, 74%, 55%);
+  color: hsl(
+    var(--brand2-hue),
+    var(--brand2-saturation),
+    var(--brand2-lightness)
+  );
 }
 small {
-  color: gray;
+  color: var(--text2);
   font-size: 0.8rem;
   margin: 0;
 }
@@ -82,9 +106,9 @@ footer {
   align-items: stretch;
 }
 .copy-button {
-  background-color: hsl(206, 74%, 5%);
+  background-color: var(--surface1);
   border: none;
-  color: gray;
+  color: var(--text2);
   cursor: pointer;
   padding: 0 0.5rem;
   border-radius: 0;
