@@ -1,6 +1,6 @@
 # SVG Emojis
 
-SVG emojis from [Twemoji](https://github.com/twitter/twemoji), [FxEMoji](https://github.com/mozilla/fxemoji), and [OpenMoji](https://www.openmoji.org/).
+Choose your flavor of consistent cross-platform emojis from [Twemoji](https://github.com/twitter/twemoji), [FxEMoji](https://github.com/mozilla/fxemoji), and [OpenMoji](https://www.openmoji.org/).
 
 - [/twemoji](./twemoji)
 - [/fxemoji](./fxemoji)
