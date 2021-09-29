@@ -21,14 +21,32 @@ npm i svg-emojis
 
 ## Usage
 
+You can use [babel-plugin-inline-react-svg](https://www.npmjs.com/package/babel-plugin-inline-react-svg) or [@svgr/webpack](https://www.npmjs.com/package/@svgr/webpack) to import them as a React component:
+
+```js
+import ThumbsUp from "svg-emojis/twemoji/1f44d.svg";
+
+function App() {
+  return (
+    <div>
+      <ThumbsUp />
+    </div>
+  );
+}
+```
+
+### Create React App
+
+👉 [Adding Images, Fonts, and Files](https://create-react-app.dev/docs/adding-images-fonts-and-files)
+
 Import as URL:
 
 ```js
 import React from "react";
-import emoji from "svg-emojis/twemoji/1f0cf.svg";
+import thumbsUp from "svg-emojis/twemoji/1f44d.svg";
 
 function Header() {
-  return <img src={emoji} alt="" />;
+  return <img src={thumbsUp} alt="" />;
 }
 
 export default Header;
@@ -37,26 +55,31 @@ export default Header;
 Import as a `ReactComponent`:
 
 ```js
-import { ReactComponent as Emoji } from "svg-emojis/twemoji/1f0cf.svg";
+import { ReactComponent as ThumbsUp } from "svg-emojis/twemoji/1f44d.svg";
 
 function App() {
   return (
     <div>
-      <Emoji />
+      <ThumbsUp />
     </div>
   );
 }
 ```
 
+### Nextjs
+
+👉 [SVG components example](https://github.com/vercel/next.js/tree/canary/examples/svg-components) using [babel-plugin-inline-react-svg](https://www.npmjs.com/package/babel-plugin-inline-react-svg).
+
 ## CDN
 
-Files are available on [jsdelivr](https://www.jsdelivr.com/) (or [unpkg](https://unpkg.com/)):
+Files can be delivered through [jsdelivr](https://www.jsdelivr.com/) (or [unpkg](https://unpkg.com/)):
 
-- https://cdn.jsdelivr.net/npm/svg-emojis/twemoji/index.json
-- https://cdn.jsdelivr.net/npm/svg-emojis/openmoji/color/index.json
-- https://cdn.jsdelivr.net/npm/svg-emojis/openmoji/black/index.json
-- https://cdn.jsdelivr.net/npm/svg-emojis/fxemoji/index.json
+- <img src="https://cdn.jsdelivr.net/npm/svg-emojis/twemoji/1f389.svg" width="16" /> https://cdn.jsdelivr.net/npm/svg-emojis/twemoji/1f389.svg
+- <img src="https://cdn.jsdelivr.net/npm/svg-emojis/fxemoji/u1F389-partypopper.svg" width="16" /> https://cdn.jsdelivr.net/npm/svg-emojis/fxemoji/u1F389-partypopper.svg
+- <img src="https://cdn.jsdelivr.net/npm/svg-emojis/openmoji/color/1F389.svg" width="16" /> https://cdn.jsdelivr.net/npm/svg-emojis/openmoji/color/1F389.svg
+- <img src="https://cdn.jsdelivr.net/npm/svg-emojis/openmoji/black/1F389.svg" width="16" /> https://cdn.jsdelivr.net/npm/svg-emojis/openmoji/black/1F389.svg
 
 ## Contributions
 
 All contributions are welcome!
+
