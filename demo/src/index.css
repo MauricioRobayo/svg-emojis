@@ -1,11 +1,11 @@
 * {
   box-sizing: border-box;
   --brand1-hue: 30;
-  --brand1-saturation: 75%;
-  --brand1-lightness: 90%;
+  --brand1-saturation: 60%;
+  --brand1-lightness: 20%;
   --brand2-hue: 190;
   --brand2-saturation: 95%;
-  --brand2-lightness: 80%;
+  --brand2-lightness: 30%;
   --text1: hsl(
     var(--brand1-hue),
     var(--brand1-saturation),
@@ -15,14 +15,10 @@
     var(--brand1-hue),
     var(--brand1-saturation),
     var(--brand1-lightness),
-    0.75
+    0.85
   );
-  --surface1: hsl(var(--brand2-hue) 26% 45%);
-  --surface2: hsl(var(--brand2-hue) 26% 35%);
-  --surface3: hsl(var(--brand2-hue) 26% 30%);
-}
-:root {
-  color-scheme: dark;
+  --surface1: hsl(var(--brand1-hue) 6% 98%);
+  --surface2: hsl(var(--brand1-hue) 6% 90%);
 }
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -47,9 +43,6 @@ input {
   padding: 0.25rem;
   text-align: center;
   width: 5.5rem;
-  background-color: white;
-  caret-color: currentColor;
-  color: #444;
 }
 main {
   align-items: center;
@@ -65,7 +58,7 @@ section {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-  background-color: var(--surface2);
+  background-color: white;
   border-bottom-left-radius: 0.5rem;
   border-top-left-radius: 0.5rem;
   display: block;
@@ -73,7 +66,7 @@ code {
   padding: 0.5em 0.75em;
   white-space: nowrap;
   text-align: left;
-  border: 2px solid var(--surface3);
+  border: 2px solid var(--surface2);
 }
 h2 {
   font-size: 1.25rem;
@@ -114,13 +107,11 @@ footer {
   align-items: stretch;
 }
 .copy-button {
-  background-color: var(--surface3);
-  border: 2px solid var(--surface3);
+  background-color: var(--surface2);
+  border: 2px solid var(--surface2);
   color: var(--text2);
   cursor: pointer;
-  padding: 0 0.5rem;
   border-radius: 0;
   border-top-right-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
-  font-size: 0.8rem;
 }
